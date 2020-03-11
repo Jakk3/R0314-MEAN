@@ -37,6 +37,7 @@ app.get("/jsondata", (req, res) => {
       '<td>' + data[i].Email + '</td>' +
       '</tr>';
   }
+  results += "</table>";
   res.send(results);
 });
 
