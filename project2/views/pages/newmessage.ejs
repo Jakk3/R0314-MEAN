@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head"); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include("../partials/header"); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <form method="post" action="/newmessage">
+                <p>Leave a new entry!</p>
+                Name <input type="text" name="name">
+                Country <input type="text" name="country">
+                Message <input type="text" name="message">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <%- include("../partials/footer"); %>
+    </footer>
+</body>
+
+</html>

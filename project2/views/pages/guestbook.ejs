@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lan="en">
+
+<head>
+    <%- include("../partials/head"); %>
+</head>
+
+<body>
+    <header>
+        <%- include("../partials/header"); %>
+    </header>
+
+    <h1 class="text-center">Our Guestbook</h1>
+    <table>
+        <% messages.forEach((message) => { %>
+        <tr>
+            <td><%= message.username %></td>
+            <td><%= message.country %></td>
+            <td><%= message.message %></td>
+        </tr>
+        <% }); %>
+    </table>
+
+    <footer>
+        <%- include("../partials/footer"); %>
+    </footer>
+</body>
+
+</html>
