@@ -32,8 +32,8 @@ app.post("/newmessage", (req, res) => {
     res.redirect("/guestbook");
 });
 
-// launch app on port 8080
-app.listen(8080);
+// launch app on port
+app.listen(process.env.PORT);
 
 function addToGuestbook(req) {
     let data = require("./data.json");
