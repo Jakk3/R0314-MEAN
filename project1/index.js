@@ -3,7 +3,9 @@ var fs = require("fs");
 var app = express();
 
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use(express.static("./public"));
 
@@ -45,7 +47,7 @@ app.post("/ajaxmessage", (req, res) => {
   addToGuestbook(req);
 });
 
-app.listen(8081);
+app.listen(process.env.PORT);
 
 function addToGuestbook(req) {
   let data = require("./data.json");
