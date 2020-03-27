@@ -47,8 +47,6 @@ app.post("/ajaxmessage", (req, res) => {
   addToGuestbook(req);
 });
 
-app.listen(process.env.PORT);
-
 function addToGuestbook(req) {
   let data = require("./data.json");
 
@@ -65,3 +63,5 @@ function addToGuestbook(req) {
     if (err) throw err;
   });
 }
+
+app.listen(process.env.PORT);
