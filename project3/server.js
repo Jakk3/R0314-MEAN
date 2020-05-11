@@ -2,11 +2,13 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 
-// // enable body parser
-// var bodyParser = require("body-parser");
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
+var PORT = process.env.PORT || 80;
+
+// set view engine
+app.set("view engine", "ejs");
+
+// route for client-side files
+app.use(express.static(__dirname + "/public/"));
 
 // parse url-encoded bodies (html forms);
 app.use(express.urlencoded({
@@ -35,7 +37,30 @@ const Apartment = mongoose.model(
     "apartments"
 );
 
-// app routing
+// website routing
+
+// homepage
+app.get("/", (req, res) => {
+    res.render("pages/home");
+});
+
+// add apartment page
+app.get("/add", (req, res) => {
+    res.render("pages/add_apartment");
+});
+
+// get-api call page
+app.get("/get", (req, res) => {
+    res.render("pages/get_apartment.ejs");
+});
+
+app.get("/documentation", (req, res) => {
+    res.render("pages/documentation");
+});
+
+
+// api routing
+
 app.get("/api/getall", (req, res) => {
     // find all apartments and return them as json
     Apartment.find({}, function (err, results) {
@@ -111,4 +136,4 @@ app.delete("/api/delete/:id", (req, res) => {
     });
 });
 
-app.listen(80);
+app.listen(PORT);
